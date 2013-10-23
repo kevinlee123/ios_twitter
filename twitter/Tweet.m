@@ -33,7 +33,7 @@
 - (NSDate *)postTime {
     NSString *str = [self.data valueOrNilForKeyPath:@"created_at"];
     NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
-    [formatter setDateFormat:@"EEE MMM dd hh:mm:ss Z yyyy"];
+    [formatter setDateFormat:@"EEE MMM dd HH:mm:ss Z yyyy"];
     NSDate *date = [formatter dateFromString:str];
     
     return date;
@@ -53,9 +53,9 @@
     if (hours > 0) {
         return [NSString stringWithFormat:@"%2i h", hours];
     } else if (minutes > 0) {
-        return [NSString stringWithFormat:@"%02i m", minutes];
+        return [NSString stringWithFormat:@"%2i m", minutes];
     } else {
-        return [NSString stringWithFormat:@"%02i s", seconds];
+        return [NSString stringWithFormat:@"%2i s", seconds];
     }
 }
 
