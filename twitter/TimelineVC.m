@@ -7,17 +7,23 @@
 //
 
 #import "TimelineVC.h"
+#import "TweetCell.h"
+#import "TweetVC.h"
+#import "ComposeVC.h"
 
 @interface TimelineVC ()
 
 @property (nonatomic, strong) NSMutableArray *tweets;
 
 - (void)onSignOutButton;
+- (void)onCompose;
 - (void)reload;
 
 @end
 
 @implementation TimelineVC
+
+NSString *const CELL_REUSE_IDENTIFIER = @"TweetCell";
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -34,8 +40,17 @@
 {
     [super viewDidLoad];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Sign Out" style:UIBarButtonItemStylePlain target:self action:@selector(onSignOutButton)];
-
+    UINib* cellNib = [UINib nibWithNibName:@"TweetCell" bundle:nil];
+    [self.tableView registerNib:cellNib forCellReuseIdentifier:CELL_REUSE_IDENTIFIER];
+    [self.tableView reloadData];
+    
+    UIBarButtonItem *signOutButton = [[UIBarButtonItem alloc] initWithTitle:@"Sign Out" style:UIBarButtonItemStylePlain target:self action:@selector(onSignOutButton)];
+    
+    UIBarButtonItem *composeButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"PencilImage"] style:UIBarButtonItemStylePlain target:self action:@selector(onCompose)];
+    
+    NSArray *buttonArray= [[NSArray alloc] initWithObjects:signOutButton,composeButton,nil];
+    self.navigationItem.rightBarButtonItems=buttonArray;
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -63,14 +78,17 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+    TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:CELL_REUSE_IDENTIFIER forIndexPath:indexPath];
 
     Tweet *tweet = self.tweets[indexPath.row];
-    cell.textLabel.text = tweet.text;
+    cell.tweet = tweet;
     
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 100.0f;
 }
 
 /*
@@ -116,6 +134,14 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    TweetVC* tweetViewController = [[TweetVC alloc] init];
+    Tweet *tweet = self.tweets[indexPath.row];
+    
+    // Adds the above view controller to the stack and pushes it into view
+    [self.navigationController pushViewController:tweetViewController animated:YES];
+
+    [tweetViewController setTweet:tweet];
 }
 
 /*
@@ -134,6 +160,12 @@
 
 - (void)onSignOutButton {
     [User setCurrentUser:nil];
+}
+
+- (void)onCompose {
+    ComposeVC* composeViewController = [[ComposeVC alloc] init];
+    
+    [self.navigationController presentViewController:composeViewController animated:YES completion:nil];
 }
 
 - (void)reload {

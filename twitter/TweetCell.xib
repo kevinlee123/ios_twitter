@@ -1,10 +1,87 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4447" systemVersion="13A451" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3671"/>
+        <deployment defaultVersion="1552" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="112" id="pAk-i3-0MZ" customClass="TweetCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="112"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pAk-i3-0MZ" id="2GQ-OF-XSP">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="111"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fWc-Wr-jZB">
+                        <rect key="frame" x="6" y="6" width="48" height="38"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="48" id="rqQ-Or-3xd"/>
+                            <constraint firstAttribute="height" constant="38" id="ymt-xG-1fa"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="100" translatesAutoresizingMaskIntoConstraints="NO" id="KPI-Cq-TNy">
+                        <rect key="frame" x="59" y="6" width="100" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="100" id="dei-kH-mcD"/>
+                            <constraint firstAttribute="height" constant="21" id="oCR-IC-lX2"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KeQ-bB-w1o">
+                        <rect key="frame" x="284" y="6" width="31" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="94" translatesAutoresizingMaskIntoConstraints="NO" id="upA-bc-B1r">
+                        <rect key="frame" x="165" y="6" width="94" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="94" id="XdX-KV-kZe"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cJi-1H-xAn">
+                        <rect key="frame" x="53" y="29" width="262" height="82"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                    </textView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="upA-bc-B1r" firstAttribute="top" secondItem="KeQ-bB-w1o" secondAttribute="top" id="4BA-8i-NlC"/>
+                    <constraint firstItem="cJi-1H-xAn" firstAttribute="trailing" secondItem="KeQ-bB-w1o" secondAttribute="trailing" id="AiJ-xz-0Nr"/>
+                    <constraint firstAttribute="bottom" secondItem="cJi-1H-xAn" secondAttribute="bottom" id="C3e-0f-WLB"/>
+                    <constraint firstItem="KPI-Cq-TNy" firstAttribute="leading" secondItem="fWc-Wr-jZB" secondAttribute="trailing" constant="5" id="CRI-ve-LFG"/>
+                    <constraint firstItem="fWc-Wr-jZB" firstAttribute="leading" secondItem="2GQ-OF-XSP" secondAttribute="leading" constant="6" id="Ehj-pi-4dJ"/>
+                    <constraint firstItem="upA-bc-B1r" firstAttribute="leading" secondItem="KPI-Cq-TNy" secondAttribute="trailing" constant="6" id="LRi-fq-tnd"/>
+                    <constraint firstItem="KPI-Cq-TNy" firstAttribute="baseline" secondItem="upA-bc-B1r" secondAttribute="baseline" id="Mdi-Rz-vi3"/>
+                    <constraint firstItem="upA-bc-B1r" firstAttribute="top" secondItem="KPI-Cq-TNy" secondAttribute="top" id="TkF-a3-oo4"/>
+                    <constraint firstItem="fWc-Wr-jZB" firstAttribute="top" secondItem="2GQ-OF-XSP" secondAttribute="top" constant="6" id="VHH-Mn-ucK"/>
+                    <constraint firstItem="cJi-1H-xAn" firstAttribute="top" secondItem="upA-bc-B1r" secondAttribute="bottom" constant="2" id="eRv-w2-1wQ"/>
+                    <constraint firstAttribute="trailing" secondItem="KeQ-bB-w1o" secondAttribute="trailing" constant="5" id="f1j-Ik-DWj"/>
+                    <constraint firstItem="KPI-Cq-TNy" firstAttribute="top" secondItem="fWc-Wr-jZB" secondAttribute="top" id="msO-5N-8t6"/>
+                    <constraint firstItem="upA-bc-B1r" firstAttribute="baseline" secondItem="KeQ-bB-w1o" secondAttribute="baseline" id="nL0-ed-EIO"/>
+                    <constraint firstItem="cJi-1H-xAn" firstAttribute="leading" secondItem="2GQ-OF-XSP" secondAttribute="leading" constant="53" id="y95-NW-8CG"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="messageLabel" destination="cJi-1H-xAn" id="UnD-Na-fbH"/>
+                <outlet property="postTimeLabel" destination="KeQ-bB-w1o" id="for-tu-kng"/>
+                <outlet property="userHandleLabel" destination="upA-bc-B1r" id="eP8-hW-nyF"/>
+                <outlet property="userImage" destination="fWc-Wr-jZB" id="xou-24-YZi"/>
+                <outlet property="userNameLabel" destination="KPI-Cq-TNy" id="7Cv-N9-nJO"/>
+            </connections>
+        </tableViewCell>
     </objects>
 </document>

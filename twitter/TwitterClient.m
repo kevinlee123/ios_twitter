@@ -15,6 +15,10 @@
 
 static NSString * const kAccessTokenKey = @"kAccessTokenKey";
 
+@interface TwitterClient()
+- (void)tweetWithParams:(NSMutableDictionary*)params success:(void (^)(AFHTTPRequestOperation *operation, id response))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+@end
+
 @implementation TwitterClient
 
 + (TwitterClient *)instance {
@@ -63,6 +67,52 @@ static NSString * const kAccessTokenKey = @"kAccessTokenKey";
         [params setObject:@(maxId) forKey:@"max_id"];
     }
     [self getPath:@"1.1/statuses/home_timeline.json" parameters:params success:success failure:failure];
+}
+
+- (void)deleteTweetWithId:(NSString *)tweetId success:(void (^)(AFHTTPRequestOperation *operation, id response))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
+    
+    NSString *deleteUriPath = [NSString stringWithFormat:@"1.1/statuses/destroy/%@.json", tweetId];
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:@{@"id": tweetId}];
+    [self postPath:deleteUriPath parameters:params success:success failure:failure];
+}
+
+- (void)retweetWithId:(NSString *)tweetId success:(void (^)(AFHTTPRequestOperation *operation, id response))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
+    
+    NSString *retweetUriPath = [NSString stringWithFormat:@"1.1/statuses/retweet/%@.json", tweetId];
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:@{@"id": tweetId}];
+    [self postPath:retweetUriPath parameters:params success:success failure:failure];
+}
+
+- (void)replyToTweetId: (NSString*)tweetId withMessage:(NSString *)message success:(void (^)(AFHTTPRequestOperation *operation, id response))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:@{@"status": message, @"in_reply_to_status_id": tweetId}];
+    [self tweetWithParams:params success:success failure:failure];
+}
+
+- (void)tweetWithMessage:(NSString *)message success:(void (^)(AFHTTPRequestOperation *operation, id response))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:@{@"status": message}];
+    [self tweetWithParams:params success:success failure:failure];
+}
+
+- (void)tweetWithParams:(NSMutableDictionary*)params success:(void (^)(AFHTTPRequestOperation *operation, id response))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
+    [self postPath:@"1.1/statuses/update.json" parameters:params success:success failure:failure];
+}
+
+#pragma mark - Favorites API
+
+- (void)addFavoriteWithId:(NSString *)tweetId success:(void (^)(AFHTTPRequestOperation *operation, id response))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
+
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:@{@"id": tweetId}];
+    [self postPath:@"1.1/favorites/create.json" parameters:params success:success failure:failure];
+}
+
+- (void)deleteFavoriteWithId:(NSString *)tweetId success:(void (^)(AFHTTPRequestOperation *operation, id response))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:@{@"id": tweetId}];
+    [self postPath:@"1.1/favorites/destroy.json" parameters:params success:success failure:failure];
 }
 
 #pragma mark - Private methods
