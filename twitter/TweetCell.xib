@@ -15,18 +15,18 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fWc-Wr-jZB">
-                        <rect key="frame" x="6" y="6" width="48" height="38"/>
+                        <rect key="frame" x="6" y="6" width="48" height="48"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="48" id="rqQ-Or-3xd"/>
-                            <constraint firstAttribute="height" constant="38" id="ymt-xG-1fa"/>
+                            <constraint firstAttribute="height" constant="48" id="ymt-xG-1fa"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="100" translatesAutoresizingMaskIntoConstraints="NO" id="KPI-Cq-TNy">
-                        <rect key="frame" x="59" y="6" width="100" height="21"/>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="142" translatesAutoresizingMaskIntoConstraints="NO" id="KPI-Cq-TNy">
+                        <rect key="frame" x="59" y="6" width="142" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="100" id="dei-kH-mcD"/>
+                            <constraint firstAttribute="width" constant="142" id="dei-kH-mcD"/>
                             <constraint firstAttribute="height" constant="21" id="oCR-IC-lX2"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
@@ -38,18 +38,18 @@
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="94" translatesAutoresizingMaskIntoConstraints="NO" id="upA-bc-B1r">
-                        <rect key="frame" x="165" y="6" width="94" height="21"/>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="77" translatesAutoresizingMaskIntoConstraints="NO" id="upA-bc-B1r">
+                        <rect key="frame" x="207" y="6" width="77" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="94" id="XdX-KV-kZe"/>
+                            <constraint firstAttribute="width" constant="77" id="XdX-KV-kZe"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cJi-1H-xAn">
-                        <rect key="frame" x="53" y="29" width="262" height="82"/>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cJi-1H-xAn">
+                        <rect key="frame" x="55" y="29" width="260" height="82"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -72,7 +72,7 @@
                     <constraint firstAttribute="trailing" secondItem="KeQ-bB-w1o" secondAttribute="trailing" constant="5" id="f1j-Ik-DWj"/>
                     <constraint firstItem="KPI-Cq-TNy" firstAttribute="top" secondItem="fWc-Wr-jZB" secondAttribute="top" id="msO-5N-8t6"/>
                     <constraint firstItem="upA-bc-B1r" firstAttribute="baseline" secondItem="KeQ-bB-w1o" secondAttribute="baseline" id="nL0-ed-EIO"/>
-                    <constraint firstItem="cJi-1H-xAn" firstAttribute="leading" secondItem="2GQ-OF-XSP" secondAttribute="leading" constant="53" id="y95-NW-8CG"/>
+                    <constraint firstItem="cJi-1H-xAn" firstAttribute="leading" secondItem="2GQ-OF-XSP" secondAttribute="leading" constant="55" id="y95-NW-8CG"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

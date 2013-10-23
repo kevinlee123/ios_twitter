@@ -20,11 +20,16 @@
 
 @implementation TweetCell
 
+float const MAX_CELL_HEIGHT=100.f;
+
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code
+        self.messageLabel.contentSize = [self.messageLabel.text sizeWithFont:[UIFont systemFontOfSize:12]
+                                                   constrainedToSize:CGSizeMake(100, MAX_CELL_HEIGHT)
+                                                       lineBreakMode:UIViewAutoresizingFlexibleHeight];
     }
     return self;
 }

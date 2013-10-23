@@ -88,7 +88,12 @@ NSString *const CELL_REUSE_IDENTIFIER = @"TweetCell";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 100.0f;
+    Tweet *tweet = self.tweets[indexPath.row];
+    NSString *tweetText = tweet.text;
+    CGSize constrainedSize = CGSizeMake(200, CGFLOAT_MAX);
+    CGSize messageSize = [tweetText sizeWithFont:[UIFont systemFontOfSize:12.0f] constrainedToSize:constrainedSize lineBreakMode:NSLineBreakByWordWrapping];
+    
+    return messageSize.height + 40;
 }
 
 /*
