@@ -22,6 +22,7 @@
 - (IBAction)onTweet:(id)sender;
 
 - (void)updateCharacterCountWithMessageLength:(int)length;
+- (void)reloadTweets;
 @end
 
 @implementation ComposeVC
@@ -75,12 +76,14 @@ int const MAX_NUM_CHARS = 140;
     
     if (self.replyTweetId != nil) {
         [[TwitterClient instance] replyToTweetId:self.replyTweetId withMessage:self.messageText.text success:^(AFHTTPRequestOperation *operation, id response) {
+            [self reloadTweets];
             [self onCancel:nil];
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"An error occurred while trying to tweet");
         }];
     } else {
         [[TwitterClient instance] tweetWithMessage:self.messageText.text success:^(AFHTTPRequestOperation *operation, id response) {
+            [self reloadTweets];
             [self onCancel:nil];
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"An error occurred while trying to tweet");
@@ -110,5 +113,11 @@ int const MAX_NUM_CHARS = 140;
     self.messageText.text = [NSString stringWithFormat:@"@%@ ", replyToHandle];
     
     [self updateCharacterCountWithMessageLength:self.messageText.text.length];
+}
+
+- (void)reloadTweets {
+    [[NSNotificationCenter defaultCenter]
+     postNotificationName:@"ReloadTimelineTweets"
+     object:nil];
 }
 @end

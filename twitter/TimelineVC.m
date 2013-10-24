@@ -51,6 +51,11 @@ NSString *const CELL_REUSE_IDENTIFIER = @"TweetCell";
     NSArray *buttonArray= [[NSArray alloc] initWithObjects:signOutButton,composeButton,nil];
     self.navigationItem.rightBarButtonItems=buttonArray;
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reload)
+                                                 name:@"ReloadTimelineTweets"
+                                               object:nil];
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
